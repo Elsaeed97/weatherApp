@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %} Weather App {% endblock %}
+{% block content %}
+<div class="container">
+	{% if api %}
+		{% if api == "Erorr..." %}
+		<h3>There is an error with the api </h3>
+		{% else %}
+		<div class="jumbotron {{ category_color }}" style="margin-top: 20px;">
+  			<h1 class="display-4">{{ api.0.Category.Name }}</h1>
+  			<p>{{ api.0.ReportingArea }} Air Quality: {{ api.0.AQI }}, Date:{{ api.1.DateObserved }}</p>
+  			
+  			{{ category_description }}
+
+		</div>
+		{% endif %}
+	{% endif %}
+</div>
+{% endblock %}
